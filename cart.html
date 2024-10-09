@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>/* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            background-color: hsl(0, 0%, 100%);
+            padding: 10px;
+        }
+        
+        .nav-items {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-item a img {
+            max-width: 100%;
+        }
+        
+        .cart-info {
+            text-align: center;
+            color: rgb(14, 1, 1);
+        }
+        
+        .nav-items-right {
+            display: flex;
+        }
+        
+        .nav-items-right .nav-item {
+            margin-left: 20px;
+        }
+        
+        .nav-items-right a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 20px;
+        }
+        
+        /* Main container */
+        .main-container {
+            display: flex;
+            padding: 20px;
+        }
+        
+        /* Cart Items */
+        .cart-items {
+            width: 70%;
+        }
+        
+        .card-component {
+            border: 1px solid #070101;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .card-horizontal {
+            flex-direction: row;
+        }
+        
+        .card-img-horizontal {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .card-details {
+            width: 100%;
+        }
+        
+        .card-details h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .card-details p {
+            font-size: 14px;
+            color: #000000;
+        }
+        
+        .dropdown {
+            margin: 10px 0;
+        }
+        
+        .dropdown select {
+            margin-left: 10px;
+            padding: 5px;
+        }
+        
+        .price {
+            font-size: 18px;
+            color: rgb(0, 5, 0);
+        }
+        
+        .price del {
+            color: #888;
+            margin-left: 10px;
+        }
+        
+        .card-actions {
+            margin-top: 10px;
+        }
+        
+        .card-action-btn {
+            padding: 10px 15px;
+            background-color: #333;
+            color: rgb(253, 250, 250);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .card-action-btn:hover {
+            background-color: #e6108c;
+        }
+        
+        .wishlist-add {
+            padding: 20px;
+            text-align: center;
+            background-color: #ed09b4;
+        }
+        
+        .wishlist-add a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        /* Bill Sidebar */
+        .bill-sidebar {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-left: 20px;
+        }
+        
+        .bill-sidebar h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .price-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .discount {
+            color: rgb(9, 0, 8);
+        }
+        
+        hr {
+            border: 0.5px solid #ddd;
+            margin: 10px 0;
+        }
+        
+        .card-actions {
+            text-align: center;
+        }
+        
+        .cart-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .cart-btn:hover {
+            background-color: #555;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #fffefe;
+            color: rgb(216, 18, 144);
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="nav-items flex-flow-row">
+                <div class="nav-item"><a><img src="https://ecothreads.co.za/cdn/shop/files/eco_threads_athleisure_wear_nl_edited_sml.png?height=628&pad_color=ffffff&v=1676616113&width=1200" height="40rem" width="100rem"></a></div>
+                <div class="cart-info">
+                        <h3>Bag ------- Address ------- Payment</h3>
+                  </div>
+                  <div class="nav-items-right flex-flow-row">
+                    <div class="nav-item"><a href="signup-login/signup.html"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></div>
+                    <div class="nav-item"><a href="../wishlist/wishlist.html"><i class="fa fa-heart fa-lg" aria-hidden="true"></i></a></div>
+                    <div class="nav-item"><a href="../cart/cart.html"><i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i></a></div>                     
+                  </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section>
+        <div class="main-container flex-flow-row">
+            <div class="flex-flow-column cart-items">
+                <div class="card card-component flex-flow-row card-horizontal">
+                    <img class="card-img card-img-horizontal" src="women.jpg">
+                  <div class="card-details flex-flow-column-horizontal flex-flow-column">
+                    <h3>Nike</h3>
+                    <p>Red hoodie dress.</p>
+                    <div class="dropdown flex-flow-row">
+                        <label for="quantity">Qty</label>
+                        <select name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        </select>
+
+                        <label for="size">Size</label>
+                        <select name="size">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        </select>
+                    </div>
+
+                    <p class="price"><ins>Rs 999</ins> <del>Rs 1299</del></p>
+                    <p>Delivery by 1 Mar 2022</p>
+                    <div class="card-actions">
+                        <button class="card-action-btn  card-btn">
+                            <i class="fa fa-cross  fa-lg"></i>Remove
+                        </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card card-component flex-flow-row card-horizontal">
+                    <img class="card-img card-img-horizontal" src="women2.jpg">
+                  <div class="card-details flex-flow-column-horizontal flex-flow-column">
+                    <h3>H&M</h3>
+                    <p>Yellow H&M crop hoodie.</p>
+                    <div class="dropdown flex-flow-row">
+                        <label for="quantity">Qty</label>
+                        <select name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        </select>
+
+                        <label for="size">Size</label>
+                        <select name="size">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        </select>
+                    </div>
+
+                    <p class="price"><ins>Rs 1299</ins> <del>Rs 2299</del></p>
+                    <p>Delivery by 1 Mar 2022</p>
+                    <div class="card-actions">
+                        <button class="card-action-btn  card-btn">
+                            <i class="fa fa-cross  fa-lg"></i>Remove
+                        </button>
+                    </div>
+                  </div>
+                </div>   
+
+                <div class="card card-component flex-flow-row card-horizontal  wishlist-add">
+                    
+                  <div class="card-details wishlist-add">
+                    <h3><a href="../wishlist/wishlist.html">Add more items from Wishlist!</a></h3>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="bill-sidebar flex-flow-column">
+                
+                    <div class="price-details flex-flow-row">
+                        <h3><a>Coupon</a></h3>
+                        <div class="card-actions">
+                            <button class="card-action-btn card-btn cart-btn">
+                             Apply
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>Price Details</h3>
+                    <hr>
+                    <div class="price-details flex-flow-row">
+                        <p>Total MRP</p>
+                        <p>Rs 2299</p>
+                    </div>
+    
+                    <div class="price-details discount flex-flow-row">
+                        <p>Discount</p>
+                        <p>Rs 1300</p>
+                    </div>
+                    <hr>
+                    <div class="price-details discount flex-flow-row">
+                        <p>Convinience fee</p>
+                        <p>Free</p>
+                    </div>
+                    <hr>
+                    <div class="price-details discount flex-flow-row">
+                        <h3>Total Amount</h3>
+                        <h3>Rs 2299</h3>
+                    </div>
+                    <hr>
+
+                    <div class="card-actions">
+                        <button class="card-action-btn cart-btn">
+                            Proceed to pay
+                        </button>
+                    </div>
+                </div>
+
+
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>Made with 💜 by Anees unnisa</h3>
+    </footer>
+
+</body>
+</html>

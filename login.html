@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style type="text/css">
+
+/* Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 2rem;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+input-container{
+    background-color: var(--white-color);
+    gap: 1.5rem;
+    width: 21rem;
+    
+}
+.input{
+    border: 1px solid var(--grey-color);
+}
+.input-container img {
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #4e4b4b;
+    
+}
+
+.input-box span {
+    color: #e7172c;
+    
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid
+ }
+    footer{
+        background-color: var(--white-color);
+    }    
+    button{
+        background-color: blue;
+        color: azure;
+        border-radius: 8px;
+        width: 180px;
+        height: 40px;
+        border-color: azure;
+    }
+    button:hover{
+        background-color: black;
+        color: azure;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="login-container">
+            <div class="input-container flex-flow-column">
+                <img src="https://ecothreads.co.za/cdn/shop/files/eco_threads_athleisure_wear_nl_edited_sml.png?height=628&pad_color=ffffff&v=1676616113&width=1200" height="70px" width="70%" alt="logo">
+                <div class="input-box">
+                    <label>Email or mobile no.<span>*</span></label>
+                    <input type="text" class="input" placeholder="Username">                      
+                </div>
+                <div class="input-box password">
+                    <label>Password<span>*</span></label>
+                    <input type="password" class="input" placeholder="Password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <div class="input-box">
+                    <span id="password-validation"></span>
+                    <button class="input-btn" onclick="validation()">Login</button>
+                    <script>
+                            let validation = () => document.getElementById("password-validation").innerHTML = "Wrong password, try again!"; 
+                    </script>
+                </div>
+                <p>Create a new account? <a href="signup.html">Click here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>&copy; Copy rights 2024</h3>
+    </footer>
+
+</body>
+</html>

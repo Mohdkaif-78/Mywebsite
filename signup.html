@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style type="text/css">
+        @import "../index.css";
+@import url("https://radiantui.netlify.app/input/input.css");
+body{
+    background-color: var(--bg-color);
+}
+.login-container{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+.input-container{
+    background-color: var(--white-color);
+    gap: 1.5rem;
+    width: 21rem;
+}
+.input{
+    border: 1px solid var(--grey-color);
+}
+.login-container a:link{
+    color: var(--primary-color);
+    text-decoration: none;
+    }
+    a:visited {
+    color: var(--primary-color);
+    text-decoration: none;
+    }
+    a:hover {
+    color: var(--black-color);
+    text-decoration: none;
+    cursor: pointer;
+    }
+    a:active {
+    color: var(--primary-color);
+    text-decoration: none;  
+}
+
+.password a{
+    font-size: 1rem;
+    padding: 8px;
+}
+.input-box label{
+    font-size: 1rem;
+}
+footer{
+    background-color: var(--white-color);
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="login-container">
+            <div class="input-container flex-flow-column">
+                <img src="https://ecothreads.co.za/cdn/shop/files/eco_threads_athleisure_wear_nl_edited_sml.png?height=628&pad_color=ffffff&v=1676616113&width=1200" height="70px" width="70%" alt="logo">
+                <div class="input-box">
+                    <label>Full name<span>*</span></label>
+                    <input type="text" class="input" placeholder="fullname">                      
+                </div>
+                <div class="input-box">
+                    <label>Email Id<span>*</span></label>
+                    <input type="text" class="input" placeholder="email">                      
+                </div>
+                <div class="input-box">
+                    <label>Password<span>*</span></label>
+                    <input type="password" class="input" placeholder="Password">
+                </div>
+                <div class="input-box">
+                    <span id="password-validation"></span>
+                    <button class="input-btn" onclick="validation()">Sign up</button>
+                </div>
+                <p>Already have an account? <a href="login.html">Click here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>&copy; Copy rights 2024</h3>
+    </footer>
+
+    <script>
+        let validation = () => document.getElementById("password-validation").innerHTML = "Wrong password, try again!"; 
+    </script>
+</body>
+</html>
